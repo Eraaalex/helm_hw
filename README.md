@@ -15,3 +15,12 @@ kubectl port-forward svc/muffin-currency 8083:8083
 ```
 helm upgrade muffin . --set <variable>=<value>
 ```
+
+Пример обновления отката: 
+
+```
+helm upgrade muffin . --set image.tag=1.0.1
+
+helm history muffin
+helm rollback muffin 1
+```
