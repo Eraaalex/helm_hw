@@ -1,0 +1,8 @@
+repositories: []
+releases:
+  - name: muffin-wallet
+    namespace: default
+    chart: ./charts/muffin-wallet
+    version: "1.1.0"
+    values:
+      - ./charts/muffin-wallet/values.yaml

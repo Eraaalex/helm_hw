@@ -1,0 +1,6 @@
+dependencies:
+- name: muffin-currency
+  repository: file://../muffin-currency
+  version: 1.0.0
+digest: sha256:34724d588809764bb51754c3f4d324799cf0c1a6fca02ff8a4bee45988fb6ca7
+generated: "2025-11-18T20:50:01.9898651+03:00"

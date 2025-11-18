@@ -1,0 +1,47 @@
+image:
+  repository: aadan1lov/muffin-wallet
+  tag: "1.1.0"
+  pullPolicy: Always
+
+service:
+  port: 80
+  targetPort: 8081
+
+ingress:
+  enabled: false
+  host: muffin-wallet.com
+  path: /
+  className: nginx
+
+secretName: muffin-wallet
+configMapName: muffin-wallet
+envConfigMapName: muffin-wallet-env
+
+labels:
+  app: muffin-wallet
+
+dbPassword: "muffin-wallet"
+
+replicaCount: 3
+
+# configmap
+config:
+  server:
+    port: 8081
+  spring:
+    datasource:
+      url: jdbc:postgresql://host.minikube.internal:5432/muffin_wallet
+      username: muffin-wallet
+  currency:
+    service:
+      url: http://muffin-currency:8083/rate
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: health, info
+    endpoint:
+      health:
+        probes:
+          enabled: true
+        show-details: always
